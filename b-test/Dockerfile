@@ -1,16 +1,16 @@
 FROM node:alpine as build-ts
 
 WORKDIR /app
-COPY package.json ./
+COPY b-test/package.json ./
 RUN npm install
-COPY ./ ./
+COPY b-test/ ./
 RUN npm run build
 
 
 FROM node:alpine
 
 WORKDIR /app
-COPY package.json /app
+COPY b-test/package.json /app
 COPY --from=build-ts /app/dist /app/dist
 ENV MONGO_USERNAME=esgi
 ENV MONGO_PASSWORD=esgi
