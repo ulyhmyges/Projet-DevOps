@@ -25,5 +25,5 @@ Branch protection rule:
 
 ![finish up feature](images/finish-feature.png)
 
-
+Create a pull request for 'develop' on GitHub
 - Merges 'develop' branch to 'main' branch
