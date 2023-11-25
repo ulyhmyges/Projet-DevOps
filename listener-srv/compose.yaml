@@ -1,4 +1,4 @@
-# using this file from scripts/script.sh file
+# using this file from scripts/script.sh file to the listener server
 # Starting 3 containers from images
 services:
   mongo:
@@ -16,11 +16,11 @@ services:
     environment:
       - MONGO_USERNAME=esgi
       - MONGO_PASSWORD=esgi
-      - MONGO_URI=mongodb://mongo:27017/database  # use with docker compose.yaml
+      - MONGO_URI=mongodb://mongo:27017/database  # use Docker DNS with docker compose.yaml
     depends_on:
       - mongo
     ports:
-      - "3001:3001"
+      - "4001:3001"
 
   app:
     image: ulyhmyges/client-ci:v1.0.0
