@@ -14,7 +14,6 @@ app.post('/events', express.json(), (req: Request, res: Response) => {
                 console.error(`Error executing script: ${error.message}`);
                 return res.status(500).send(error.message);
             }
-
             return res.status(200).send(stdout);
         });
     }
