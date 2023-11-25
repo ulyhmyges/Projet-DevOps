@@ -13,9 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image for the Front
-        run: docker build . --file client/Dockerfile --tag "ulyhmyges/client-ci:v1.0.0"
+        run: docker build client/ --file client/Dockerfile --tag "ulyhmyges/client-ci:v1.0.0"
       - name: Build the Docker image for the Back
-        run: docker build . --file b-test/Dockerfile --tag "ulyhmyges/b-test-ci:v1.0.0"
+        run: docker build b-test/ --file b-test/Dockerfile --tag "ulyhmyges/b-test-ci:v1.0.0"
       - name: Docker Login
       # You may pin to the exact commit or the version.
       # uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d

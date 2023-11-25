@@ -8,3 +8,16 @@ $ sudo apt update
 $ apt-cache policy docker-ce
 $ sudo apt install docker-ce
 $ sudo systemctl status docker
+
+-----
+To install Docker compose plugin for all users on your linux system:
+
+$ DOCKER_CONFIG=/usr/local/lib/docker
+$ mkdir -p $DOCKER_CONFIG/cli-plugins
+$ curl -SL https://github.com/docker/compose/releases/download/v2.23.3/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+
+# Apply executable permissions to the binary
+$ chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+
+# Test the installation
+$ docker compose version

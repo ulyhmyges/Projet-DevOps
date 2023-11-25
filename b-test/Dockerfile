@@ -1,20 +1,20 @@
 FROM node:alpine as build-ts
 
 WORKDIR /app
-COPY b-test/package.json ./
+COPY package.json ./
 RUN npm install
-COPY b-test/ ./
+COPY ./ ./
 RUN npm run build
 
 
 FROM node:alpine
 
 WORKDIR /app
-COPY b-test/package.json /app
+COPY package.json /app
 COPY --from=build-ts /app/dist /app/dist
 ENV MONGO_USERNAME=esgi
 ENV MONGO_PASSWORD=esgi
-ENV MONGO_URI=mongodb://mongo:27017/database
+#ENV MONGO_URI=mongodb://mongo:27017/database
 ENV PORT=3001
 RUN npm install --omit=dev
 
