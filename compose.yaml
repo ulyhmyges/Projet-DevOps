@@ -26,6 +26,5 @@ services:
       dockerfile: Dockerfile
     container_name: client-app
     #image: imagefront   # new image from modified container
-
     ports:
       - "3000:3000"
