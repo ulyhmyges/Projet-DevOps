@@ -24,6 +24,5 @@ Branch protection rule:
   - Create a pull request for 'release/v1.0.1' on Github to merge this branch into 'main' branch
   - Back-merges the release into 'develop'
   - Removes the release branch
-  - Switches back to 'develop' branch
 
 ![git flow](images/gitflow.drawio.png)
