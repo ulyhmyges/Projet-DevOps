@@ -1,0 +1,29 @@
+# using this file from scripts/script.sh file to the listener server
+# Starting 3 containers from images
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo_container
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=esgi
+      - MONGO_INITDB_ROOT_PASSWORD=esgi
+
+  node:
+    image: ulyhmyges/b-test-ci:v1:0.0
+    container_name: node-express
+    environment:
+      - MONGO_USERNAME=esgi
+      - MONGO_PASSWORD=esgi
+      - MONGO_URI=mongodb://mongo:27017/database  # use Docker DNS with docker compose.yaml
+    depends_on:
+      - mongo
+    ports:
+      - "4001:3001"
+
+  app:
+    image: ulyhmyges/client-ci:v1.0.0
+    container_name: client-app
+    ports:
+      - "3000:3000"
